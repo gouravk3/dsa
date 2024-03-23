@@ -19,9 +19,10 @@ func TestReverseInplace(t *testing.T) {
 	}
 
 	for i, item := range tests {
-		res := reverseInplace(item.arr)
-		if !reflect.DeepEqual(res, item.want) {
-			t.Fatalf("Failed test case %d. Want %#v got %#v", i+1, item.want, res)
+		reverseInplace(item.arr)
+		if !reflect.DeepEqual(item.arr, item.want) {
+			t.Fatalf("Failed test case %d. Want %#v got %#v", i+1, item.want, item.arr)
 		}
+		t.Logf("Passed %d test", i+1)
 	}
 }
