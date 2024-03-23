@@ -5,18 +5,18 @@ import (
 	"testing"
 )
 
-func TestProductExceptSelf(t *testing.T) {
+func TestRunningSum(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want []int
 	}{
-		{[]int{2, 0, 11, 0}, []int{0, 0, 0, 0}},
-		{[]int{1, 2, 3, 4}, []int{24, 12, 8, 6}},
-		{[]int{-1, 1, 0, -3, 3}, []int{0, 0, 9, 0, 0}},
+		{[]int{1, 2, 3, 4}, []int{1, 3, 6, 10}},
+		{[]int{1, 1, 1, 1, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{3, 1, 2, 10, 1}, []int{3, 4, 6, 16, 17}},
 	}
 
 	for i, item := range tests {
-		res := productExceptSelf(item.nums)
+		res := runningSum(item.nums)
 		if !reflect.DeepEqual(res, item.want) {
 			t.Fatalf("Failed test case %d. Want %#v got %#v", i+1, item.want, res)
 		}
