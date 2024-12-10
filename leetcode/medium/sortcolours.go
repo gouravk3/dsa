@@ -1,4 +1,4 @@
-package leetcode
+package medium
 
 func sortColors(nums []int)  {
     var pos0 int = -1
