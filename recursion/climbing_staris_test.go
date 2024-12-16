@@ -6,10 +6,12 @@ func Test_climbStairs(t *testing.T) {
 	tests := []int{
 		2,
 		3,
+		44,
 	}
 	want := []int{
 		2,
 		3,
+		1134903170,
 	}
 	for i := range tests {
 		t.Run("climbing stairs recursion", func(t *testing.T) {

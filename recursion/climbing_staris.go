@@ -1,10 +1,6 @@
 package recursion
 
 func climbStairs(n int) int {
-	return climb(n)
-}
-
-func climb(n int) int {
 	if n == 1 {
 		return 1
 	}
@@ -13,5 +9,5 @@ func climb(n int) int {
 		return 2
 	}
 
-	return climb(n-1) + climb(n-2)
+	return climbStairs(n-1) + climbStairs(n-2)
 }
