@@ -1,9 +1,4 @@
-package main
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package linkedlist
 
 func reverseList(head *ListNode) *ListNode {
 	var prev, next *ListNode

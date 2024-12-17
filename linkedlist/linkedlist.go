@@ -1,18 +1,23 @@
-package main
+package linkedlist
 
 import "fmt"
 
-type Node struct {
-	data int
-	next *Node
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
+
+type ListNode struct {
+	Val int
+	Next *ListNode
 }
 
-type List struct {
-	head *Node
+type LinkedList struct {
+	head *ListNode
 }
 
-func (l *List) add(value int) {
-	newNode := &Node{data: value}
+func (l *LinkedList) add(value int) {
+	newNode := &ListNode{Val: value}
 
 	if l.head == nil {
 		l.head = newNode
@@ -20,33 +25,33 @@ func (l *List) add(value int) {
 	}
 
 	curr := l.head
-	for curr.next != nil {
-		curr = curr.next
+	for curr.Next != nil {
+		curr = curr.Next
 	}
-	curr.next = newNode
+	curr.Next = newNode
 }
 
-func (l *List) remove(value int) {
+func (l *LinkedList) remove(value int) {
 	if l.head == nil {
 		return
 	}
 
-	if l.head.data == value {
-		l.head = l.head.next
+	if l.head.Val == value {
+		l.head = l.head.Next
 		return
 	}
 
 	curr := l.head
-	for curr.next != nil && curr.next.data != value {
-		curr = curr.next
+	for curr.Next != nil && curr.Next.Val != value {
+		curr = curr.Next
 	}
-	if curr.next != nil {
-		curr.next = curr.next.next
+	if curr.Next != nil {
+		curr.Next = curr.Next.Next
 	}
 }
 
 func main() {
-	l := &List{}
+	l := &LinkedList{}
 	l.add(10)
 	l.add(20)
 	l.add(30)
@@ -56,8 +61,8 @@ func main() {
 	l.remove(20)
 
 	curr := l.head
-	for curr.next != nil {
-		fmt.Printf("curr.data: %v\n", curr.data)
-		curr = curr.next
+	for curr.Next != nil {
+		fmt.Printf("curr.data: %v\n", curr.Val)
+		curr = curr.Next
 	}
 }
