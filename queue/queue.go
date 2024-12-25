@@ -20,6 +20,10 @@ func main() {
 type Queue []int
 
 func (q *Queue) dequeue() int {
+	if q.len() == 0 {
+		fmt.Println("Queue is empty")
+		return -1
+	}
 	ret := (*q)[0]
 	(*q) = (*q)[1:]
 	return ret
@@ -30,6 +34,10 @@ func (q *Queue) enqueue(n int) {
 }
 
 func (q *Queue) peek() int {
+	if q.len() == 0 {
+		fmt.Println("Queue is empty")
+		return -1
+	}
 	return (*q)[0]
 }
 

@@ -24,6 +24,10 @@ func (s *Stack) push(n int) {
 }
 
 func (s *Stack) pop() int {
+	if s.len() == 0 {
+		fmt.Println("Stack is empty")
+		return -1
+	}
 	end := s.len() - 1
 	ret := (*s)[end]
 	(*s) = (*s)[:end]
@@ -31,6 +35,10 @@ func (s *Stack) pop() int {
 }
 
 func (s *Stack) peek() int {
+	if s.len() == 0 {
+		fmt.Println("Stack is empty")
+		return -1
+	}
 	return (*s)[s.len()-1]
 }
 
